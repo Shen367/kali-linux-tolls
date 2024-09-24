@@ -1,5 +1,5 @@
 clear
-figlet "Welcome to Kali" | lolcat
+figlet "sastra" | lolcat
 
 while true; do
     echo "1. IP Tracker"
