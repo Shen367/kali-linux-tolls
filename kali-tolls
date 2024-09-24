@@ -1,0 +1,39 @@
+clear
+figlet "Welcome to Kali" | lolcat
+
+while true; do
+    echo "1. IP Tracker"
+    echo "2. Whois"
+    echo "3. Install All Packages"
+    echo "4. Secret Kali Linux Commands"
+    echo "5. Exit"
+    read -p "Choose an option: " option
+
+    case $option in
+        1)
+            read -p "Enter IP to track: " ip
+            curl http://ip-api.com/$ip
+            ;;
+        2)
+            read -p "Enter domain or IP for whois: " domain
+            whois $domain
+            ;;
+        3)
+            echo "Installing all necessary packages..."
+            sudo apt update && sudo apt upgrade -y && sudo apt install -y kali-tools-top10 kali-linux-large
+            ;;
+        4)
+            echo "Here are some secret commands:"
+            echo "1. Steganography Tool: steghide"
+            echo "2. Directory Brute Force: gobuster"
+            echo "3. Hash Cracking Tool: hashcat"
+            ;;
+        5)
+            echo "Exiting..."
+            exit 0
+            ;;
+        *)
+            echo "Invalid option, try again."
+            ;;
+    esac
+done
